@@ -289,6 +289,7 @@ function createBaseMediaElement(base) {
   if (base?.type === "video") {
     const video = document.createElement("video");
     video.className = "stage-media";
+    video.preload = "auto";
     if (base.poster) video.poster = base.poster;
     video.src = base.src || "";
     video.playsInline = true;
@@ -482,7 +483,10 @@ function preloadNextPrimaryAsset() {
     img.src = base.src;
     registerTeardownHandler(() => {});
   } else if (base.type === "video" && base.src) {
-    preloadVideoSource(base.src);
+    const vid = document.createElement("video");
+    vid.preload = "metadata";
+    vid.src = base.src;
+    registerTeardownHandler(() => {});
   }
 }
 
@@ -499,13 +503,6 @@ function preloadVideoSource(src) {
   vid.src = src;
   vid.muted = true;
   vid.playsInline = true;
-
-  // Not appended to DOM; just exists long enough to trigger a fetch.
-  registerTeardownHandler(() => {
-    // Clean up reference; cached bytes remain in the HTTP cache.
-    vid.removeAttribute("src");
-    vid.load();
-  });
 }
 
 /**
@@ -515,14 +512,18 @@ function preloadVideoSource(src) {
 function preloadInitialVideosForPaths() {
   const paths = getPathsConfig();
   paths.forEach((path) => {
-    if (!path || !Array.isArray(path.slides) || !path.slides.length) return;
+    if (!path || !Array.isArray(path.slides) || path.slides.length === 0)
+      return;
 
     const firstSlide = path.slides[0];
-    const base = firstSlide?.base || {};
+    const base = firstSlide && firstSlide.base;
+    if (!base || base.type !== "video" || !base.src) return;
 
-    if (base.type === "video" && base.src) {
-      preloadVideoSource(base.src);
-    }
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "video";
+    link.href = base.src;
+    document.head.appendChild(link);
   });
 }
 
