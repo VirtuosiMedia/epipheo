@@ -522,7 +522,7 @@ function getOrCreatePreloadPool() {
 function preloadVideoSource(src) {
   if (!src || videoPreloadRegistry.has(src)) return;
   videoPreloadRegistry.add(src);
-
+  console.log("preload video", src);
   const pool = getOrCreatePreloadPool();
 
   const video = document.createElement("video");
