@@ -238,16 +238,29 @@ body {
 .stage.fullscreen {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
-  aspect-ratio: auto;
   border-radius: 0;
   box-shadow: none;
+  margin: auto;
 }
 .stage-inner {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+/* Small slide counter, top-right */
+.slide-counter {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  border-radius: 3px;
+  pointer-events: none; /* don't block clicks on the slide */
+  z-index: 1000;
 }
 
 /* Base media fills the stage with cover behavior so art remains edge-to-edge. */

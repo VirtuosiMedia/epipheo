@@ -213,6 +213,14 @@ function renderSlide() {
 
   renderOverlays(stageInner, currentSlide.overlays || []);
 
+  // ---- slide counter ----
+  const totalSlides = currentPath.slides.length;
+  const counter = document.createElement("div");
+  counter.className = "slide-counter";
+  counter.textContent = `${appState.slideIndex + 1} / ${totalSlides}`;
+  stageInner.appendChild(counter);
+  // ------------------------
+
   preloadNextPrimaryAsset();
   stageRoot.focus({ preventScroll: true });
 }

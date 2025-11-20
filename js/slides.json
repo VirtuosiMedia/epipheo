@@ -687,6 +687,42 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-02.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 1000,
+              "hideAt": 4000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-03.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 4000,
+              "hideAt": 7000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-04.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 7000,
+              "hideAt": 10000
+            },
+            {
+              "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "x": 0,
@@ -718,6 +754,18 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-05.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 2000,
+              "hideAt": 7000
+            },
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
@@ -753,6 +801,30 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-06.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 2000,
+              "hideAt": 5000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-07.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 5000,
+              "hideAt": 10000
+            },
+            {
+              "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "x": 0,
@@ -786,6 +858,30 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-08.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 2000,
+              "hideAt": 5000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-09.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 5000,
+              "hideAt": 10000
+            },
+            {
+              "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "x": 0,
@@ -817,6 +913,18 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-10.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 3000,
+              "hideAt": 10000
+            },
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
@@ -853,6 +961,18 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-11.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 3000,
+              "hideAt": 10000
+            },
+            {
+              "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "x": 0,
@@ -884,6 +1004,18 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-12.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 3000,
+              "hideAt": 10000
+            },
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
@@ -985,6 +1117,18 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-13.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 2000,
+              "hideAt": 10000
+            },
+            {
+              "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
               "x": 0,
@@ -1018,37 +1162,16 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "src": "media/chicken/overlays/chicken-overlay-14.png",
               "alt": "Tap to continue",
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "showAt": 2000,
+              "hideAt": 10000
             },
-            {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            }
-          ]
-        },
-        {
-          "base": {
-            "type": "image",
-            "src": "media/chicken/chicken12.jpg",
-            "alt": "Chicken frame 12"
-          },
-          "advance": "click",
-          "preloadNext": true,
-          "overlays": [
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
@@ -1058,7 +1181,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
+              "showAt": 10000,
               "hideAt": null
             },
             {
