@@ -58,6 +58,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 10000
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -127,6 +138,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -184,6 +206,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -229,6 +262,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -262,6 +306,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 3000
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -307,6 +362,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 10000
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -339,6 +405,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -384,6 +461,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -442,6 +530,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -486,6 +585,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -532,6 +642,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -576,6 +697,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -622,6 +754,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -666,6 +809,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -742,6 +896,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -786,6 +951,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -844,6 +1020,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -901,6 +1088,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -945,6 +1143,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -992,6 +1201,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1037,6 +1257,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1070,6 +1301,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1102,6 +1344,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -1148,6 +1401,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1193,6 +1457,17 @@
               "h": 100,
               "classList": ["hotspot"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1216,6 +1491,17 @@
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 1000,
               "hideAt": null
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         }
@@ -1279,6 +1565,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1336,6 +1633,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1368,6 +1676,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -1427,6 +1746,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1471,6 +1801,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -1517,6 +1858,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1549,6 +1901,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
@@ -1595,6 +1958,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1628,6 +2002,17 @@
               "h": 100,
               "classList": ["hotspot", "pulse"],
               "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
+              "showAt": 0
             }
           ]
         },
@@ -1660,6 +2045,17 @@
               "w": 100,
               "h": 100,
               "classList": ["hotspot", "pulse"],
+              "showAt": 0
+            },
+            {
+              "type": "button",
+              "text": "Skip",
+              "action": "next",
+              "x": 90,
+              "y": 95,
+              "w": 10,
+              "h": 5,
+              "classList": ["pop-in"],
               "showAt": 0
             }
           ]
