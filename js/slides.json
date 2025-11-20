@@ -752,8 +752,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 1000,
+              "autoAdvance": false,
+              "delay": 0,
               "showAt": 1000,
               "hideAt": 4000
             },
@@ -766,8 +766,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 2000,
+              "autoAdvance": false,
+              "delay": 0,
               "showAt": 4000,
               "hideAt": 7000
             },
@@ -781,8 +781,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "autoAdvance": true,
-              "delay": 2000,
+              "autoAdvance": false,
+              "delay": 0,
               "showAt": 7000,
               "hideAt": 10000
             },

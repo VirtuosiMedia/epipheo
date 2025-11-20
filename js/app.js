@@ -52,8 +52,9 @@ async function initializeApplication() {
   try {
     const config = await fetchSlidesConfiguration(APP_CONSTANTS.slidesUrl);
     appState.config = config;
-    preloadFirstVideoForEachPath();
     buildSplashButtons();
+
+    setTimeout(preloadFirstVideoForEachPath, 500);
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
   } catch {
     renderFatalError(
@@ -747,7 +748,6 @@ function preloadOverlayImagesForSlide(slide) {
     if (overlay && overlay.type === "image" && overlay.src) {
       const img = new Image();
       img.src = overlay.src;
-      // No teardown needed; browser manages cache.
     }
   });
 }
