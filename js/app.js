@@ -30,6 +30,13 @@ const appState = {
 const videoElementCache = new Map();
 
 /**
+ * Global handler for advancing overlay sequences.
+ * When set, overlays with action="next" will advance
+ * the current overlay before advancing the slide.
+ */
+let overlayAdvanceHandler = null;
+
+/**
  * Bootstraps the application once the DOM is ready so the initial paint is deterministic.
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -182,44 +189,58 @@ function renderSlide() {
   const stageRoot = getStageRoot();
   const stageInner = stageRoot.querySelector(".stage-inner");
   clearElement(stageInner);
+  overlayAdvanceHandler = null;
 
   const currentPath = getPathsConfig()[appState.pathIndex];
   const currentSlide = currentPath.slides[appState.slideIndex];
+  const overlays = currentSlide.overlays || [];
 
   const baseMedia = createBaseMediaElement(currentSlide.base);
   stageInner.appendChild(baseMedia);
 
-  if (shouldStageAdvanceOnClick(currentSlide)) {
-    const advanceHandler = () => moveToNextSlide();
-    stageRoot.addEventListener("click", advanceHandler);
-    registerTeardownHandler(() =>
-      stageRoot.removeEventListener("click", advanceHandler)
-    );
-  }
+  const useSequentialOverlays =
+    Array.isArray(overlays) &&
+    overlays.length > 0 &&
+    currentSlide.advance === "click";
 
-  if (
-    currentSlide.advance === "timer" &&
-    typeof currentSlide.duration === "number"
-  ) {
-    const timerId = window.setTimeout(
-      () => moveToNextSlide(),
-      currentSlide.duration
-    );
-    registerTeardownHandler(() => window.clearTimeout(timerId));
-  }
+  if (useSequentialOverlays) {
+    // Sequential overlays: click to step through overlays, then advance slide.
+    renderSequentialOverlays(stageRoot, stageInner, overlays);
+  } else {
+    // Original behavior: stage click advances slide if allowed.
+    if (shouldStageAdvanceOnClick(currentSlide)) {
+      const advanceHandler = () => moveToNextSlide();
+      stageRoot.addEventListener("click", advanceHandler);
+      registerTeardownHandler(() =>
+        stageRoot.removeEventListener("click", advanceHandler)
+      );
+    }
 
-  if (
-    currentSlide.base?.type === "video" &&
-    currentSlide.advance === "video-end"
-  ) {
-    const endedHandler = () => moveToNextSlide();
-    baseMedia.addEventListener("ended", endedHandler);
-    registerTeardownHandler(() =>
-      baseMedia.removeEventListener("ended", endedHandler)
-    );
-  }
+    if (
+      currentSlide.advance === "timer" &&
+      typeof currentSlide.duration === "number"
+    ) {
+      const timerId = window.setTimeout(
+        () => moveToNextSlide(),
+        currentSlide.duration
+      );
+      registerTeardownHandler(() => window.clearTimeout(timerId));
+    }
 
-  renderOverlays(stageInner, currentSlide.overlays || []);
+    if (
+      currentSlide.base?.type === "video" &&
+      currentSlide.advance === "video-end"
+    ) {
+      const endedHandler = () => moveToNextSlide();
+      baseMedia.addEventListener("ended", endedHandler);
+      registerTeardownHandler(() =>
+        baseMedia.removeEventListener("ended", endedHandler)
+      );
+    }
+
+    // Timed overlay behavior (for non-sequential slides, if any still use it)
+    renderOverlays(stageInner, overlays);
+  }
 
   // ---- slide counter ----
   const totalSlides = currentPath.slides.length;
@@ -335,8 +356,142 @@ function createBaseMediaElement(base) {
 }
 
 /**
- * Renders overlay layers above the base media.
- * Overlays are absolutely positioned in percentages so they scale with the stage.
+ * Sequential overlay renderer.
+ * Shows overlays one at a time in index order; each click
+ * (stage or overlay "next") advances overlays, then moves to next slide.
+ *
+ * Overlays with `persistent: true` are rendered once at the start
+ * and never removed (good for skip buttons, etc.).
+ *
+ * Optional `delay` (ms) on a sequential overlay waits before showing it
+ * after the click that advances to it.
+ *
+ * @param {HTMLElement} stageRoot
+ * @param {HTMLElement} stageInner
+ * @param {Array} overlays
+ */
+function renderSequentialOverlays(stageRoot, stageInner, overlays) {
+  if (!Array.isArray(overlays) || overlays.length === 0) return;
+
+  // Split overlays into persistent (always visible) and sequential.
+  const persistentDefs = overlays.filter((o) => o && o.persistent === true);
+  const sequenceDefs = overlays.filter((o) => o && o.persistent !== true);
+
+  // Render persistent overlays once and never remove them.
+  persistentDefs.forEach((overlayDefinition) => {
+    const overlayElement = createOverlayElement(overlayDefinition);
+    if (Array.isArray(overlayDefinition.classList)) {
+      overlayDefinition.classList.forEach((cls) =>
+        overlayElement.classList.add(cls)
+      );
+    }
+    stageInner.appendChild(overlayElement);
+  });
+
+  // If there are no sequential overlays, just let stage click advance slide.
+  if (sequenceDefs.length === 0) {
+    overlayAdvanceHandler = null;
+    const stageClickHandler = () => {
+      moveToNextSlide();
+    };
+    stageRoot.addEventListener("click", stageClickHandler);
+    registerTeardownHandler(() => {
+      stageRoot.removeEventListener("click", stageClickHandler);
+    });
+    return;
+  }
+
+  let currentIndex = 0;
+  let currentElement = null;
+  let isWaiting = false;
+  let overlayDelayTimerId = null;
+
+  const showOverlay = (index) => {
+    if (currentElement && currentElement.parentNode === stageInner) {
+      stageInner.removeChild(currentElement);
+    }
+
+    if (index < 0 || index >= sequenceDefs.length) {
+      currentElement = null;
+      return;
+    }
+
+    const overlayDefinition = sequenceDefs[index];
+    const overlayElement = createOverlayElement(overlayDefinition);
+
+    if (Array.isArray(overlayDefinition.classList)) {
+      overlayDefinition.classList.forEach((cls) =>
+        overlayElement.classList.add(cls)
+      );
+    }
+
+    stageInner.appendChild(overlayElement);
+    currentElement = overlayElement;
+    isWaiting = false;
+  };
+
+  const scheduleOverlay = (index) => {
+    const def = sequenceDefs[index];
+    const delay =
+      def && typeof def.delay === "number" && def.delay > 0 ? def.delay : 0;
+
+    if (overlayDelayTimerId != null) {
+      window.clearTimeout(overlayDelayTimerId);
+      overlayDelayTimerId = null;
+    }
+
+    // Remove current overlay immediately when advancing
+    if (currentElement && currentElement.parentNode === stageInner) {
+      stageInner.removeChild(currentElement);
+      currentElement = null;
+    }
+
+    if (delay > 0) {
+      isWaiting = true;
+      overlayDelayTimerId = window.setTimeout(() => {
+        overlayDelayTimerId = null;
+        showOverlay(index);
+      }, delay);
+    } else {
+      showOverlay(index);
+    }
+  };
+
+  const advance = () => {
+    if (isWaiting) return; // ignore clicks during delay
+
+    if (currentIndex < sequenceDefs.length - 1) {
+      currentIndex += 1;
+      scheduleOverlay(currentIndex);
+    } else {
+      overlayAdvanceHandler = null;
+      moveToNextSlide();
+    }
+  };
+
+  // Expose to overlay buttons/hotspots with action="next"
+  overlayAdvanceHandler = advance;
+
+  // Initial overlay: respect its delay, too, if provided.
+  scheduleOverlay(currentIndex);
+
+  // Stage click advances overlays/slide
+  const stageClickHandler = () => {
+    advance();
+  };
+  stageRoot.addEventListener("click", stageClickHandler);
+  registerTeardownHandler(() => {
+    stageRoot.removeEventListener("click", stageClickHandler);
+    if (overlayDelayTimerId != null) {
+      window.clearTimeout(overlayDelayTimerId);
+    }
+    overlayAdvanceHandler = null;
+  });
+}
+
+/**
+ * Renders overlay layers above the base media using the original
+ * timed showAt/hideAt behavior. Used for non-sequential slides.
  *
  * @param {HTMLElement} stageInner
  * @param {Array} overlays
@@ -429,15 +584,33 @@ function createOverlayElement(overlayDefinition) {
  * Wires an interactive overlay action.
  * Clicks on overlays stop propagation to prevent the stage click handler from also firing.
  *
+ * Supported actions:
+ * - "next": advance overlay sequence if active, otherwise advance slide.
+ * - "skip": always advance slide immediately.
+ *
  * @param {HTMLElement} element
  * @param {string} action
  */
 function wireOverlayAction(element, action) {
-  if (action === "next") {
+  if (action === "skip") {
     const handler = (event) => {
       event.preventDefault();
       event.stopPropagation();
-      moveToNextSlide();
+      moveToNextSlide(); // always skip entire slide
+    };
+    element.addEventListener("click", handler);
+    registerTeardownHandler(() =>
+      element.removeEventListener("click", handler)
+    );
+  } else if (action === "next") {
+    const handler = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      if (typeof overlayAdvanceHandler === "function") {
+        overlayAdvanceHandler(); // step through overlays
+      } else {
+        moveToNextSlide(); // fallback to slide advance
+      }
     };
     element.addEventListener("click", handler);
     registerTeardownHandler(() =>

@@ -41,6 +41,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -50,19 +51,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 10000
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -121,6 +113,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -130,19 +123,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -169,9 +153,7 @@
               "y": 0,
               "w": 100,
               "h": 100,
-              "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2500,
-              "hideAt": 5000
+              "classList": ["overlay-icon", "fade-in"]
             },
             {
               "type": "image",
@@ -189,6 +171,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -198,19 +181,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -245,6 +219,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -254,19 +229,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -289,6 +255,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -298,19 +265,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 3000
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -345,6 +303,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -354,19 +313,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 10000
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -389,28 +339,21 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
+              "delay": 3000,
               "showAt": 3000,
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -445,6 +388,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -454,19 +398,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -513,6 +448,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -522,19 +458,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -569,6 +496,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -578,19 +506,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -625,6 +544,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -634,19 +554,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -681,6 +592,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -690,19 +602,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -737,6 +640,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -746,19 +650,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -793,6 +688,7 @@
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -802,19 +698,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -879,6 +766,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -888,19 +776,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -935,6 +814,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -944,19 +824,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1003,6 +874,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1012,19 +884,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1071,6 +934,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1080,19 +944,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1127,6 +982,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1136,19 +992,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1184,6 +1031,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1193,19 +1041,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1240,6 +1079,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1249,19 +1089,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1284,6 +1115,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1293,19 +1125,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1328,6 +1151,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1337,19 +1161,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1384,6 +1199,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1393,19 +1209,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1440,6 +1247,7 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1449,19 +1257,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1495,7 +1294,8 @@
             {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1548,6 +1348,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1557,19 +1358,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1616,6 +1408,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1625,19 +1418,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1660,6 +1444,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1669,19 +1454,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1729,6 +1505,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1738,19 +1515,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1785,6 +1553,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1794,19 +1563,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1841,6 +1601,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1850,19 +1611,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1885,6 +1637,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1894,19 +1647,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1941,6 +1685,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1950,19 +1695,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -1985,6 +1721,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -1994,19 +1731,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
@@ -2029,6 +1757,7 @@
               "type": "image",
               "src": "media/travel/overlays/travel-overlay-01.png",
               "alt": "Tap to continue",
+              "action": "next",
               "x": 0,
               "y": 0,
               "w": 100,
@@ -2038,19 +1767,10 @@
               "hideAt": null
             },
             {
-              "type": "hotspot",
-              "action": "next",
-              "x": 0,
-              "y": 0,
-              "w": 100,
-              "h": 100,
-              "classList": ["hotspot", "pulse"],
-              "showAt": 0
-            },
-            {
               "type": "button",
               "text": "Skip",
-              "action": "next",
+              "persistent": true,
+              "action": "skip",
               "x": 90,
               "y": 95,
               "w": 10,
