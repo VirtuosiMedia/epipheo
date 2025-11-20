@@ -212,7 +212,7 @@ function renderSlide() {
   } else {
     // Original behavior: stage click advances slide if allowed.
     if (shouldStageAdvanceOnClick(currentSlide)) {
-      const advanceHandler = () => moveToNextSlide();
+      const advanceHandler = () => goToNextSlideFromUserGesture();
       stageRoot.addEventListener("click", advanceHandler);
       registerTeardownHandler(() =>
         stageRoot.removeEventListener("click", advanceHandler)
@@ -290,6 +290,53 @@ function moveToNextSlide() {
 
     setState({ mode: "RUNNING", slideIndex: nextIndex });
   });
+}
+
+/**
+ * Advances to the next slide from a direct user gesture
+ * (click/keypress), and ensures the new slide's video
+ * starts playing inside that same gesture.
+ */
+function goToNextSlideFromUserGesture() {
+  const a = document.getElementById("click2");
+  if (a) {
+    a.currentTime = 0;
+    a.play();
+  }
+
+  const paths = getPathsConfig();
+  const currentPath = paths[appState.pathIndex];
+  if (!currentPath) {
+    returnToSplash();
+    return;
+  }
+
+  const nextIndex = appState.slideIndex + 1;
+  if (nextIndex >= currentPath.slides.length) {
+    returnToSplash();
+    return;
+  }
+
+  // Synchronous state update & render inside the gesture.
+  setState({ mode: "RUNNING", slideIndex: nextIndex });
+
+  // After render, find the base video (if any) and play it.
+  try {
+    const stageRoot = getStageRoot();
+    const stageInner = stageRoot.querySelector(".stage-inner");
+    if (!stageInner) return;
+    const video = stageInner.querySelector("video.stage-media");
+    if (video) {
+      const p = video.play();
+      if (p && typeof p.then === "function") {
+        p.catch(() => {
+          // Autoplay might still be blocked; ignore.
+        });
+      }
+    }
+  } catch {
+    // Ignore any errors here; keep UI responsive.
+  }
 }
 
 /**
@@ -503,15 +550,14 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   };
 
   const advance = () => {
-    if (isWaiting) return; // ignore clicks while waiting for pre-show delay
-    clearTimers();
+    if (isWaiting) return;
 
     if (currentIndex < sequenceDefs.length - 1) {
       currentIndex += 1;
       scheduleOverlay(currentIndex);
     } else {
       overlayAdvanceHandler = null;
-      moveToNextSlide();
+      goToNextSlideFromUserGesture();
     }
   };
 
@@ -640,7 +686,7 @@ function wireOverlayAction(element, action) {
     const handler = (event) => {
       event.preventDefault();
       event.stopPropagation();
-      moveToNextSlide(); // always skip entire slide
+      goToNextSlideFromUserGesture(); // always skip entire slide
     };
     element.addEventListener("click", handler);
     registerTeardownHandler(() =>
@@ -651,9 +697,10 @@ function wireOverlayAction(element, action) {
       event.preventDefault();
       event.stopPropagation();
       if (typeof overlayAdvanceHandler === "function") {
-        overlayAdvanceHandler(); // step through overlays
+        // In a sequential overlay flow, step overlays instead of immediately changing slide
+        overlayAdvanceHandler();
       } else {
-        moveToNextSlide(); // fallback to slide advance
+        goToNextSlideFromUserGesture();
       }
     };
     element.addEventListener("click", handler);
@@ -892,7 +939,7 @@ function attachGlobalKeyBindings() {
         event.key === "ArrowRight"
       ) {
         event.preventDefault();
-        moveToNextSlide();
+        goToNextSlideFromUserGesture();
       }
     }
   };
