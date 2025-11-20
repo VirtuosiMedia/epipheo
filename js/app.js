@@ -39,8 +39,6 @@ async function initializeApplication() {
     const config = await fetchSlidesConfiguration(APP_CONSTANTS.slidesUrl);
     appState.config = config;
 
-    preloadInitialVideosForPaths();
-
     buildSplashButtons();
     setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
   } catch {
@@ -289,7 +287,6 @@ function createBaseMediaElement(base) {
   if (base?.type === "video") {
     const video = document.createElement("video");
     video.className = "stage-media";
-    video.preload = "auto";
     if (base.poster) video.poster = base.poster;
     video.src = base.src || "";
     video.playsInline = true;
@@ -486,45 +483,11 @@ function preloadNextPrimaryAsset() {
     const vid = document.createElement("video");
     vid.preload = "metadata";
     vid.src = base.src;
-    registerTeardownHandler(() => {});
+    registerTeardownHandler(() => {
+      vid.removeAttribute("src");
+      vid.load();
+    });
   }
-}
-
-/**
- * Preloads a video source into the browser cache using an off-DOM video element.
- *
- * @param {string} src
- */
-function preloadVideoSource(src) {
-  if (!src) return;
-
-  const vid = document.createElement("video");
-  vid.preload = "metadata";
-  vid.src = src;
-  vid.muted = true;
-  vid.playsInline = true;
-}
-
-/**
- * Preloads the base video for the first slide of each path
- * so starting a path doesn't incur a cold-video pop-in.
- */
-function preloadInitialVideosForPaths() {
-  const paths = getPathsConfig();
-  paths.forEach((path) => {
-    if (!path || !Array.isArray(path.slides) || path.slides.length === 0)
-      return;
-
-    const firstSlide = path.slides[0];
-    const base = firstSlide && firstSlide.base;
-    if (!base || base.type !== "video" || !base.src) return;
-
-    const link = document.createElement("link");
-    link.rel = "preload";
-    link.as = "video";
-    link.href = base.src;
-    document.head.appendChild(link);
-  });
 }
 
 /**
