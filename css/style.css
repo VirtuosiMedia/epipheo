@@ -235,6 +235,9 @@ body {
   display: grid;
   place-items: center;
 }
+.stage:focus {
+  outline: none;
+}
 .stage.fullscreen {
   position: fixed;
   inset: 0;
