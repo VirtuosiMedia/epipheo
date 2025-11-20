@@ -686,15 +686,26 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to begin.",
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
+            },
+            {
+              "type": "hotspot",
               "action": "next",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 2000
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot", "pulse"],
+              "showAt": 0
             }
           ]
         },
@@ -708,14 +719,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -739,14 +752,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -770,14 +785,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -801,14 +818,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -833,14 +852,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -864,14 +885,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -895,14 +918,49 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
+            },
+            {
+              "type": "hotspot",
+              "action": "next",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["hotspot"],
+              "showAt": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "video",
+            "src": "media/chicken/chicken09.mp4",
+            "alt": "Chicken frame 09"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -926,14 +984,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -957,14 +1017,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 10000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -988,14 +1050,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Tap to continue.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 1000,
+              "hideAt": null
             },
             {
               "type": "hotspot",
@@ -1019,14 +1083,16 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "text",
-              "html": "Return to the splash to choose another path.",
-              "x": 6,
-              "y": 78,
-              "w": 88,
-              "h": 18,
-              "classList": ["caption", "fade-in"],
-              "showAt": 200
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-01.png",
+              "alt": "Tap to continue",
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "showAt": 1000,
+              "hideAt": null
             }
           ]
         }
