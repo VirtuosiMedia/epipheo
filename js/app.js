@@ -9,6 +9,8 @@ const APP_CONSTANTS = {
   splashButtonsId: "splash-buttons",
   stageId: "stage",
   slidesUrl: "js/slides.json",
+  musicEnabled: true,
+  soundEnabled: true,
 };
 
 /**
@@ -20,6 +22,8 @@ const appState = {
   pathIndex: null,
   slideIndex: null,
   teardownHandlers: [],
+  musicEnabled: true,
+  soundEnabled: true,
 };
 
 /**
@@ -28,6 +32,61 @@ const appState = {
  * rendering the slide.
  */
 const videoElementCache = new Map();
+
+// Track currently playing music and sound effects
+const activeMusicElements = new Set();
+const activeSoundElements = new Set();
+
+// Cache audio elements keyed by src for overlays
+const musicAudioCache = new Map();
+const soundAudioCache = new Map();
+
+/**
+ * Get or create a cached <audio> element for music overlays.
+ * @param {string} src
+ * @returns {HTMLAudioElement|null}
+ */
+function getOrCreateMusicAudio(src) {
+  if (!src) return null;
+  let audio = musicAudioCache.get(src);
+  if (!audio) {
+    audio = new Audio(src);
+    audio.preload = "auto";
+    musicAudioCache.set(src, audio);
+  }
+  return audio;
+}
+
+/**
+ * Get or create a cached <audio> element for sound overlays.
+ * @param {string} src
+ * @returns {HTMLAudioElement|null}
+ */
+function getOrCreateSoundAudio(src) {
+  if (!src) return null;
+  let audio = soundAudioCache.get(src);
+  if (!audio) {
+    audio = new Audio(src);
+    audio.preload = "auto";
+    soundAudioCache.set(src, audio);
+  }
+  return audio;
+}
+
+/**
+ * Resolves an audio target:
+ * - HTMLElement <audio> instance
+ * - string id (e.g., "click1")
+ */
+function resolveAudioElement(target) {
+  if (!target) return null;
+  if (target instanceof HTMLAudioElement) return target;
+  if (typeof target === "string") {
+    const el = document.getElementById(target);
+    return el instanceof HTMLAudioElement ? el : null;
+  }
+  return null;
+}
 
 /**
  * Global handler for advancing overlay sequences.
@@ -40,6 +99,7 @@ let overlayAdvanceHandler = null;
  * Bootstraps the application once the DOM is ready so the initial paint is deterministic.
  */
 document.addEventListener("DOMContentLoaded", () => {
+  createGlobalAudioToggles();
   initializeApplication();
 });
 
@@ -183,6 +243,93 @@ function buildSplashButtons() {
 }
 
 /**
+ * Creates global music/sound toggle buttons in the top-right corner.
+ * They persist across modes (splash + stage) and just update appState for now.
+ */
+function createGlobalAudioToggles() {
+  // Avoid duplicates if initializeApplication is ever re-run.
+  if (document.querySelector(".global-audio-controls")) return;
+
+  const container = document.createElement("div");
+  container.className = "global-audio-controls";
+
+  // --- Music button ---
+  const musicBtn = document.createElement("button");
+  musicBtn.type = "button";
+  musicBtn.className = "audio-toggle audio-toggle-music";
+  musicBtn.setAttribute("aria-label", "Toggle music");
+  musicBtn.setAttribute("aria-pressed", "true");
+  musicBtn.innerHTML = `
+  <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M421.84 37.37a25.86 25.86 0 0 0-22.6-4.46L199.92 86.49A32.3 32.3 0 0 0 176 118v226c0 6.74-4.36 12.56-11.11 14.83l-.12.05-52 18C92.88 383.53 80 402 80 423.91a55.54 55.54 0 0 0 23.23 45.63A54.78 54.78 0 0 0 135.34 480a55.82 55.82 0 0 0 17.75-2.93l.38-.13 21.84-7.94A47.84 47.84 0 0 0 208 423.91v-212c0-7.29 4.77-13.21 12.16-15.07l.21-.06L395 150.14a4 4 0 0 1 5 3.86v141.93c0 6.75-4.25 12.38-11.11 14.68l-.25.09-50.89 18.11A49.09 49.09 0 0 0 304 375.92a55.67 55.67 0 0 0 23.23 45.8 54.63 54.63 0 0 0 49.88 7.35l.36-.12 21.84-7.95A47.83 47.83 0 0 0 432 375.92V58a25.74 25.74 0 0 0-10.16-20.63z"></path></svg>
+  `;
+
+  musicBtn.addEventListener("click", () => {
+    appState.musicEnabled = !appState.musicEnabled;
+    updateGlobalAudioTogglesUI();
+
+    if (!appState.musicEnabled) {
+      // Mute button: pause all current music, don't reset position
+      pauseMusic();
+    } else {
+      resumeMusic();
+    }
+  });
+
+  // --- Sound button ---
+  const soundBtn = document.createElement("button");
+  soundBtn.type = "button";
+  soundBtn.className = "audio-toggle audio-toggle-sound";
+  soundBtn.setAttribute("aria-label", "Toggle sound effects");
+  soundBtn.setAttribute("aria-pressed", "true");
+  soundBtn.innerHTML = `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 9v6h3l4 4V5L8 9H5zm11.54-2.12 1.41 1.41A5.98 5.98 0 0 1 19 12c0 1.38-.47 2.65-1.26 3.67l-1.41-1.41A3.98 3.98 0 0 0 17 12c0-.92-.32-1.77-.86-2.45zM14.5 7.5 16 6a7.96 7.96 0 0 1 0 12l-1.5-1.5A5.96 5.96 0 0 0 18 12a5.96 5.96 0 0 0-3.5-4.5z"/>
+    </svg>
+  `;
+
+  soundBtn.addEventListener("click", () => {
+    appState.soundEnabled = !appState.soundEnabled;
+    updateGlobalAudioTogglesUI();
+
+    if (!appState.soundEnabled) {
+      // Turning sound OFF: pause all current sounds
+      pauseSound();
+    } else {
+      // Turning sound ON: try to resume whatever was playing
+      resumeSound();
+    }
+  });
+
+  container.appendChild(musicBtn);
+  container.appendChild(soundBtn);
+
+  document.body.appendChild(container);
+
+  // Initial visual state
+  updateGlobalAudioTogglesUI();
+}
+
+/**
+ * Syncs UI state (pressed / off styling) with appState flags.
+ */
+function updateGlobalAudioTogglesUI() {
+  const musicBtn = document.querySelector(".audio-toggle-music");
+  const soundBtn = document.querySelector(".audio-toggle-sound");
+
+  if (musicBtn) {
+    const on = !!appState.musicEnabled; // true/false, no undefined magic
+    musicBtn.classList.toggle("is-off", !on);
+    musicBtn.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+
+  if (soundBtn) {
+    const on = !!appState.soundEnabled;
+    soundBtn.classList.toggle("is-off", !on);
+    soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+}
+
+/**
  * Renders the current slide for the active path.
  * A fixed stage contains one base media layer and any number of overlay layers.
  */
@@ -197,6 +344,7 @@ function renderSlide() {
 
   const overlays = currentSlide.overlays || [];
   preloadOverlayImagesForSlide(currentSlide);
+  preloadOverlayAudioForSlide(currentSlide);
 
   const baseMedia = createBaseMediaElement(currentSlide.base);
   stageInner.appendChild(baseMedia);
@@ -343,6 +491,12 @@ function goToNextSlideFromUserGesture() {
  * Returns to the splash screen to allow users to choose a different path.
  */
 function returnToSplash() {
+  stopMusic();
+  stopSound();
+  const splashBGMusic = getOrCreateSoundAudio(
+    "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3"
+  );
+  playMusic(splashBGMusic);
   setState({ mode: "SPLASH", pathIndex: null, slideIndex: null });
 }
 
@@ -428,9 +582,18 @@ function createBaseMediaElement(base) {
 function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   if (!Array.isArray(overlays) || overlays.length === 0) return;
 
+  // Sound-only overlays: schedule their audio and never let them
+  // participate in click flow.
+  const soundOnlyDefs = overlays.filter((o) => o && o.type === "sound");
+  soundOnlyDefs.forEach((def) => scheduleSoundOverlay(def));
+
+  // Non-sound overlays are the ones that participate in the
+  // sequential flow.
+  const nonSoundDefs = overlays.filter((o) => !o || o.type !== "sound");
+
   // Split overlays into persistent (always visible) and sequential.
-  const persistentDefs = overlays.filter((o) => o && o.persistent === true);
-  const sequenceDefs = overlays.filter((o) => o && o.persistent !== true);
+  const persistentDefs = nonSoundDefs.filter((o) => o && o.persistent === true);
+  const sequenceDefs = nonSoundDefs.filter((o) => o && o.persistent !== true);
 
   // Render persistent overlays once and never remove them.
   persistentDefs.forEach((overlayDefinition) => {
@@ -441,6 +604,8 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
       );
     }
     stageInner.appendChild(overlayElement);
+    // Play any audio tied to this persistent overlay when it appears
+    playOverlayAudio(overlayDefinition);
   });
 
   // If there are no sequential overlays, just let stage click advance slide.
@@ -495,6 +660,9 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
     stageInner.appendChild(overlayElement);
     currentElement = overlayElement;
     isWaiting = false;
+
+    // Play any audio tied to this overlay when it becomes visible
+    playOverlayAudio(overlayDefinition);
 
     // If this overlay should auto-advance, schedule it.
     const dwell =
@@ -589,6 +757,12 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
  */
 function renderOverlays(stageInner, overlays) {
   overlays.forEach((overlayDefinition) => {
+    // Sound-only overlays: schedule audio by delay; no DOM.
+    if (overlayDefinition && overlayDefinition.type === "sound") {
+      scheduleSoundOverlay(overlayDefinition);
+      return;
+    }
+
     const overlayElement = createOverlayElement(overlayDefinition);
     stageInner.appendChild(overlayElement);
 
@@ -603,8 +777,13 @@ function renderOverlays(stageInner, overlays) {
       const showTimerId = window.setTimeout(() => {
         overlayElement.style.visibility = "";
         overlayElement.classList.add("overlay-visible");
+        // Play audio when the overlay actually appears
+        playOverlayAudio(overlayDefinition);
       }, overlayDefinition.showAt);
       registerTeardownHandler(() => window.clearTimeout(showTimerId));
+    } else {
+      // No showAt: overlay is visible immediately, so play audio now
+      playOverlayAudio(overlayDefinition);
     }
 
     if (typeof overlayDefinition.hideAt === "number") {
@@ -769,8 +948,9 @@ function preloadNextPrimaryAsset() {
   const nextSlide = currentPath.slides[nextIndex];
   if (nextSlide.preloadNext === false) return;
 
-  // Preload overlay images for the next slide as well.
+  // Preload overlay images and audio for the next slide as well.
   preloadOverlayImagesForSlide(nextSlide);
+  preloadOverlayAudioForSlide(nextSlide);
 
   const base = nextSlide.base || {};
   if (base.type === "image" && base.src) {
@@ -798,6 +978,104 @@ function preloadOverlayImagesForSlide(slide) {
       img.src = overlay.src;
     }
   });
+}
+
+/**
+ * Preloads all overlay audio (music + sound) for a given slide so
+ * they are ready when overlays appear.
+ *
+ * @param {Object} slide
+ */
+function preloadOverlayAudioForSlide(slide) {
+  if (!slide || !Array.isArray(slide.overlays)) return;
+
+  slide.overlays.forEach((overlay) => {
+    if (!overlay) return;
+
+    // Music overlay entries: { src }
+    if (Array.isArray(overlay.music)) {
+      overlay.music.forEach((m) => {
+        if (m && m.src) {
+          getOrCreateMusicAudio(m.src);
+        }
+      });
+    }
+
+    // Sound overlay entries: { src, loops, stopOthers }
+    if (Array.isArray(overlay.sound)) {
+      overlay.sound.forEach((s) => {
+        if (s && s.src) {
+          getOrCreateSoundAudio(s.src);
+        }
+      });
+    }
+  });
+}
+
+/**
+ * Plays any music/sound defined on an overlay definition.
+ * Uses playMusic / playSound and respects global toggles.
+ *
+ * Expected overlay shape:
+ *   music: [{ src, stopOthers?, loop? }]
+ *   sound: [{ src, loops?, stopOthers? }]
+ *
+ * @param {Object} overlayDefinition
+ */
+function playOverlayAudio(overlayDefinition) {
+  if (!overlayDefinition) return;
+
+  // Music entries
+  if (Array.isArray(overlayDefinition.music)) {
+    overlayDefinition.music.forEach((m) => {
+      if (!m || !m.src) return;
+      const audio = getOrCreateMusicAudio(m.src);
+      if (!audio) return;
+      const options = {
+        stopOthers: typeof m.stopOthers === "boolean" ? m.stopOthers : true, // default: stop other music
+        loop: typeof m.loop === "boolean" ? m.loop : true, // default: loop music
+      };
+      playMusic(audio, options);
+    });
+  }
+
+  // Sound entries
+  if (Array.isArray(overlayDefinition.sound)) {
+    overlayDefinition.sound.forEach((s) => {
+      if (!s || !s.src) return;
+      const audio = getOrCreateSoundAudio(s.src);
+      if (!audio) return;
+      const options = {
+        stopOthers: s.stopOthers === true, // default: don't stop others
+        loop: s.loops === true, // uses "loops" field per your JSON
+      };
+      playSound(audio, options);
+    });
+  }
+}
+
+/**
+ * Schedules a sound-only overlay to play its audio
+ * after an optional delay. No DOM, no click impact.
+ *
+ * @param {Object} overlayDefinition
+ */
+function scheduleSoundOverlay(overlayDefinition) {
+  if (!overlayDefinition) return;
+
+  const delay =
+    typeof overlayDefinition.delay === "number" && overlayDefinition.delay > 0
+      ? overlayDefinition.delay
+      : 0;
+
+  if (delay > 0) {
+    const timerId = window.setTimeout(() => {
+      playOverlayAudio(overlayDefinition);
+    }, delay);
+    registerTeardownHandler(() => window.clearTimeout(timerId));
+  } else {
+    playOverlayAudio(overlayDefinition);
+  }
 }
 
 /**
@@ -900,6 +1178,281 @@ function preloadFirstVideoForEachPath() {
       }
     }
   });
+}
+
+/**
+ * Plays a music track if music is enabled.
+ * By default stops all other current music first.
+ *
+ * @param {string|HTMLAudioElement} target  id or <audio> element
+ * @param {Object} [options]
+ * @param {boolean} [options.stopOthers=true]
+ * @param {boolean} [options.loop=true]
+ * @param {number} [options.volume=1]
+ * @returns {HTMLAudioElement|null}
+ */
+function playMusic(target, options = {}) {
+  if (appState.musicEnabled === false) return null;
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return null;
+
+  const { stopOthers = true, loop = true, volume = 1 } = options;
+
+  if (stopOthers) {
+    activeMusicElements.forEach((el) => {
+      try {
+        el.pause();
+        el.currentTime = 0;
+      } catch {}
+    });
+    activeMusicElements.clear();
+  }
+
+  audio.loop = loop;
+  audio.volume = volume;
+  audio.muted = false;
+
+  activeMusicElements.add(audio);
+
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.then === "function") {
+    playPromise.catch(() => {
+      // Autoplay might be blocked; ignore.
+    });
+  }
+
+  return audio;
+}
+
+/**
+ * Pauses music playback without resetting currentTime.
+ * If a target is provided, pauses just that; otherwise pauses all music.
+ *
+ * @param {string|HTMLAudioElement} [target]
+ */
+function pauseMusic(target) {
+  if (!target) {
+    // Pause all music, keep their positions
+    activeMusicElements.forEach((el) => {
+      try {
+        el.pause();
+      } catch {}
+    });
+    return;
+  }
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return;
+
+  try {
+    audio.pause();
+  } catch {}
+}
+
+/**
+ * Resumes paused music if any exists.
+ * Finds the first paused element in activeMusicElements and plays it.
+ *
+ * @returns {HTMLAudioElement|null}
+ */
+function resumeMusic() {
+  if (appState.musicEnabled === false) return null;
+
+  let resumed = null;
+
+  activeMusicElements.forEach((el) => {
+    if (!resumed && el && el.paused) {
+      try {
+        const playPromise = el.play();
+        if (playPromise && typeof playPromise.then === "function") {
+          playPromise.catch(() => {
+            // Autoplay might be blocked; ignore.
+          });
+        }
+        resumed = el;
+      } catch {
+        // Ignore individual playback errors, try others if any.
+      }
+    }
+  });
+
+  return resumed;
+}
+
+/**
+ * Stops music playback.
+ * If a target is provided, stops just that; otherwise stops all music.
+ *
+ * @param {string|HTMLAudioElement} [target]
+ */
+function stopMusic(target) {
+  if (!target) {
+    // Stop all music
+    activeMusicElements.forEach((el) => {
+      try {
+        el.pause();
+        el.currentTime = 0;
+      } catch {}
+    });
+    activeMusicElements.clear();
+    return;
+  }
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return;
+
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+  } catch {}
+
+  activeMusicElements.delete(audio);
+}
+
+/**
+ * Plays a sound effect if sound is enabled.
+ * Does NOT stop other sounds by default.
+ *
+ * @param {string|HTMLAudioElement} target  id or <audio> element
+ * @param {Object} [options]
+ * @param {boolean} [options.stopOthers=false]
+ * @param {boolean} [options.loop=false]
+ * @param {number} [options.volume=1]
+ * @returns {HTMLAudioElement|null}
+ */
+function playSound(target, options = {}) {
+  if (appState.soundEnabled === false) return null;
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return null;
+
+  const { stopOthers = false, loop = false, volume = 1 } = options;
+
+  if (stopOthers) {
+    activeSoundElements.forEach((el) => {
+      try {
+        el.pause();
+        el.currentTime = 0;
+      } catch {}
+    });
+    activeSoundElements.clear();
+  }
+
+  audio.loop = loop;
+  audio.volume = volume;
+  audio.muted = false;
+
+  // Restart from beginning by default for SFX
+  try {
+    audio.currentTime = 0;
+  } catch {}
+
+  activeSoundElements.add(audio);
+
+  const playPromise = audio.play();
+  if (playPromise && typeof playPromise.then === "function") {
+    playPromise
+      .then(() => {
+        // Remove from active set when it naturally ends (non-looping).
+        if (!loop) {
+          const onEnded = () => {
+            activeSoundElements.delete(audio);
+            audio.removeEventListener("ended", onEnded);
+          };
+          audio.addEventListener("ended", onEnded);
+        }
+      })
+      .catch(() => {
+        // Autoplay might be blocked; ignore.
+      });
+  }
+
+  return audio;
+}
+
+/**
+ * Pauses sound effects without resetting currentTime.
+ * If a target is provided, pauses just that; otherwise pauses all sounds.
+ *
+ * @param {string|HTMLAudioElement} [target]
+ */
+function pauseSound(target) {
+  if (!target) {
+    // Pause all sounds, keep their positions
+    activeSoundElements.forEach((el) => {
+      try {
+        el.pause();
+      } catch {}
+    });
+    return;
+  }
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return;
+
+  try {
+    audio.pause();
+  } catch {}
+}
+
+/**
+ * Resumes paused sound if any exists.
+ * Finds the first paused element in activeSoundElements and plays it.
+ *
+ * @returns {HTMLAudioElement|null}
+ */
+function resumeSound() {
+  if (appState.soundEnabled === false) return null;
+
+  let resumed = null;
+
+  activeSoundElements.forEach((el) => {
+    if (!resumed && el && el.paused) {
+      try {
+        const playPromise = el.play();
+        if (playPromise && typeof playPromise.then === "function") {
+          playPromise.catch(() => {
+            // Autoplay might be blocked; ignore.
+          });
+        }
+        resumed = el;
+      } catch {
+        // Ignore individual playback errors, try others if any.
+      }
+    }
+  });
+
+  return resumed;
+}
+
+/**
+ * Stops sound effects.
+ * If a target is provided, stops just that; otherwise stops all sounds.
+ *
+ * @param {string|HTMLAudioElement} [target]
+ */
+function stopSound(target) {
+  if (!target) {
+    activeSoundElements.forEach((el) => {
+      try {
+        el.pause();
+        el.currentTime = 0;
+      } catch {}
+    });
+    activeSoundElements.clear();
+    return;
+  }
+
+  const audio = resolveAudioElement(target);
+  if (!audio) return;
+
+  try {
+    audio.pause();
+    audio.currentTime = 0;
+  } catch {}
+
+  activeSoundElements.delete(audio);
 }
 
 /**

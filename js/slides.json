@@ -747,13 +747,30 @@
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-02.png",
               "alt": "Tap to continue",
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
+                }
+              ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/knock.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/BGLoops/Chicken_OfficeBG_LOOP-02.mp3",
+                  "loops": true,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 1000,
-              "hideAt": 4000
+              "autoAdvance": true,
+              "delay": 300
             },
             {
               "type": "image",
@@ -764,8 +781,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 4000,
-              "hideAt": 7000
+              "autoAdvance": true,
+              "delay": 300
             },
             {
               "type": "image",
@@ -777,8 +794,8 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 7000,
-              "hideAt": 10000
+              "autoAdvance": true,
+              "delay": 300
             },
             {
               "type": "image",
@@ -818,16 +835,41 @@
           "overlays": [
             {
               "type": "image",
-              "src": "media/chicken/overlays/chicken-overlay-05.png",
+              "src": null,
               "alt": "Tap to continue",
-              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/knock.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": 7000
+              "autoAdvance": true,
+              "delay": 1000
+            },
+            {
+              "type": "image",
+              "src": "media/chicken/overlays/chicken-overlay-05.png",
+              "alt": "Tap to continue",
+              "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "classList": ["overlay-icon", "fade-in"],
+              "delay": 1000
             },
             {
               "type": "image",
@@ -870,19 +912,44 @@
               "src": "media/chicken/overlays/chicken-overlay-06.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": 5000
+              "delay": 2000
+            },
+
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/open-door.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
             },
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-07.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -928,23 +995,47 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/chicken.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-08.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": 5000
+              "delay": 1000
             },
             {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-09.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -990,17 +1081,34 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/clear-chicken.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-10.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3000,
-              "hideAt": 10000
+              "delay": 800
             },
             {
               "type": "image",
@@ -1040,17 +1148,34 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-11.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3000,
-              "hideAt": 10000
+              "delay": 2000
             },
             {
               "type": "image",
@@ -1089,17 +1214,34 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-12.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 3000,
-              "hideAt": 10000
+              "delay": 1000
             },
             {
               "type": "image",
@@ -1138,6 +1280,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/disaster.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
@@ -1147,8 +1300,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "delay": 1000
             },
             {
               "type": "button",
@@ -1174,17 +1326,34 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/point.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-13.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": 10000
+              "delay": 500
             },
             {
               "type": "image",
@@ -1223,17 +1392,34 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/reveal.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 300
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-14.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 2000,
-              "hideAt": 10000
+              "delay": 1000
             },
             {
               "type": "image",
@@ -1272,6 +1458,28 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/BGLoops/Chicken_ParkLotBG_LOOP-01.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Chicken/happy.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 1000
+            },
+            {
               "type": "image",
               "src": "media/chicken/overlays/chicken-overlay-01.png",
               "alt": "Tap to continue",
@@ -1281,8 +1489,7 @@
               "w": 100,
               "h": 100,
               "classList": ["overlay-icon", "fade-in"],
-              "showAt": 10000,
-              "hideAt": null
+              "delay": 5000
             },
             {
               "type": "button",
