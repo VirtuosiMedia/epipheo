@@ -573,11 +573,6 @@
                   "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
                   "loops": false,
                   "stopOthers": false
-                },
-                {
-                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
-                  "loops": false,
-                  "stopOthers": false
                 }
               ],
               "x": 0,
