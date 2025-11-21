@@ -18,6 +18,23 @@
               "src": "media/bank/overlays/bank-overlay-03.png",
               "alt": "Tap to continue",
               "action": "next",
+              "music": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3"
+                }
+              ],
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/continue.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/BGLoops/Bank_SpaceBG_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -31,6 +48,13 @@
               "src": "media/bank/overlays/bank-overlay-01.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -44,6 +68,13 @@
               "src": "media/bank/overlays/bank-overlay-02.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -80,6 +111,13 @@
               "src": "media/bank/overlays/bank-overlay-04.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -116,6 +154,18 @@
               "src": "media/bank/overlays/bank-overlay-06.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/cut.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -125,10 +175,28 @@
               "hideAt": 9000
             },
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/BGLoops/Bank_FilmSetBG_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 500
+            },
+            {
               "type": "image",
               "src": "media/bank/overlays/bank-overlay-08.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -165,6 +233,13 @@
               "src": "media/bank/overlays/bank-overlay-05.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -178,6 +253,13 @@
               "src": "media/bank/overlays/bank-overlay-07.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -248,6 +330,18 @@
               "src": "media/bank/overlays/bank-overlay-10.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -255,6 +349,17 @@
               "classList": ["overlay-icon", "fade-in"],
               "showAt": 2000,
               "hideAt": null
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/BGLoops/Bank_OfficeEndBG_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 500
             },
             {
               "type": "button",
@@ -284,6 +389,18 @@
               "text": "Skip",
               "persistent": true,
               "action": "skip",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/oohahh.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 90,
               "y": 95,
               "w": 10,
@@ -307,6 +424,18 @@
               "src": "media/bank/overlays/bank-overlay-11.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -343,6 +472,13 @@
               "src": "media/bank/overlays/bank-overlay-12.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -379,6 +515,23 @@
               "src": "media/bank/overlays/bank-overlay-13.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/disaster.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -415,6 +568,18 @@
               "src": "media/bank/overlays/bank-overlay-14.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/alert.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -451,6 +616,13 @@
               "src": "media/bank/overlays/bank-overlay-15.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -464,6 +636,13 @@
               "src": "media/bank/overlays/bank-overlay-16.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -500,6 +679,23 @@
               "src": "media/bank/overlays/bank-overlay-17.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/VideoSoundFX/Bank/oohahh.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                },
+                {
+                  "src": "media/sound/mp3/BGLoops/Bank_SpaceBG_LOOP.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 0,
               "y": 0,
               "w": 100,
@@ -536,6 +732,13 @@
               "src": "media/bank/overlays/bank-overlay-18.png",
               "alt": "Tap to continue",
               "action": "next",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/speech.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
               "x": 10,
               "y": 0,
               "w": 80,
