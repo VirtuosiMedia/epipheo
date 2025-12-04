@@ -14,6 +14,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "button",
+              "action": "skip",
+              "persistent": true,
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "showAt": 2000,
+              "hideAt": 65000
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/continue.svg",
               "x": 88,
@@ -106,6 +117,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "button",
+              "action": "skip",
+              "persistent": true,
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "showAt": 2000,
+              "hideAt": 8000
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/end.svg",
               "x": 50,
@@ -132,6 +154,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "button",
+              "action": "skip",
+              "persistent": true,
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "showAt": 2000,
+              "hideAt": 63000
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/continue.svg",
               "x": 88,
@@ -139,6 +172,37 @@
               "w": 10,
               "h": 10,
               "delay": 65000
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_chicken-01.jpg",
+            "alt": "Chicken frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
+            {
+              "type": "image",
+              "src": "media/ui/overlays/arrow.svg",
+              "x": 10,
+              "y": 20,
+              "w": 10,
+              "h": 10,
+              "delay": 2000
             }
           ]
         },
@@ -250,6 +314,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "button",
+              "action": "skip",
+              "persistent": true,
+              "x": 88,
+              "y": 90,
+              "w": 10,
+              "h": 10,
+              "showAt": 2000,
+              "hideAt": 48000
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/continue.svg",
               "x": 88,
@@ -357,7 +432,7 @@
               "type": "sound",
               "sound": [
                 {
-                  "src": "",
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3",
                   "loops": true,
                   "stopOthers": true
                 }

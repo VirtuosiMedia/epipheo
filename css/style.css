@@ -396,10 +396,15 @@ body {
   cursor: pointer;
   transition: transform 120ms ease, filter 120ms ease;
 }
+.overlay-button {
+  background: url(../media/ui/overlays/skip.svg) no-repeat;
+  background-size: contain;
+}
 .overlay-button:hover,
 .button:hover {
   transform: translateY(-2px);
   filter: brightness(1.03);
+  cursor: pointer;
 }
 .overlay-button:active,
 .button:active {

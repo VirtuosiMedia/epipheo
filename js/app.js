@@ -424,14 +424,6 @@ function renderSlide() {
     renderOverlays(stageInner, overlays);
   }
 
-  // ---- slide counter ----
-  const totalSlides = currentPath.slides.length;
-  const counter = document.createElement("div");
-  counter.className = "slide-counter";
-  counter.textContent = `${appState.slideIndex + 1} / ${totalSlides}`;
-  stageInner.appendChild(counter);
-  // ------------------------
-
   preloadNextPrimaryAsset();
   stageRoot.focus({ preventScroll: true });
 }
@@ -624,7 +616,7 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
   const persistentDefs = nonSoundDefs.filter((o) => o && o.persistent === true);
   const sequenceDefs = nonSoundDefs.filter((o) => o && o.persistent !== true);
 
-  // Render persistent overlays once and never remove them.
+  // Render persistent overlays once. Respect showAt/hideAt timing.
   persistentDefs.forEach((overlayDefinition) => {
     const overlayElement = createOverlayElement(overlayDefinition);
     if (Array.isArray(overlayDefinition.classList)) {
@@ -632,9 +624,39 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
         overlayElement.classList.add(cls)
       );
     }
+
+    // Default: visible immediately
+    let hasShowAt = typeof overlayDefinition.showAt === "number";
+    let hasHideAt = typeof overlayDefinition.hideAt === "number";
+
+    if (hasShowAt) {
+      overlayElement.style.visibility = "hidden";
+      const showTimerId = window.setTimeout(() => {
+        overlayElement.style.visibility = "";
+        overlayElement.classList.add("overlay-visible");
+        // Play audio when it actually appears
+        playOverlayAudio(overlayDefinition);
+      }, overlayDefinition.showAt);
+      registerTeardownHandler(() => window.clearTimeout(showTimerId));
+    } else {
+      // No showAt: visible immediately
+      overlayElement.classList.add("overlay-visible");
+      playOverlayAudio(overlayDefinition);
+    }
+
+    if (hasHideAt) {
+      const hideTimerId = window.setTimeout(() => {
+        overlayElement.style.visibility = "hidden";
+        overlayElement.classList.remove("overlay-visible");
+      }, overlayDefinition.hideAt);
+      registerTeardownHandler(() => window.clearTimeout(hideTimerId));
+    }
+
     stageInner.appendChild(overlayElement);
-    // Play any audio tied to this persistent overlay when it appears
-    playOverlayAudio(overlayDefinition);
+
+    if (overlayDefinition && overlayDefinition.action) {
+      wireOverlayAction(overlayElement, overlayDefinition.action);
+    }
   });
 
   // If there are no sequential overlays, just let stage click advance slide.
@@ -689,6 +711,11 @@ function renderSequentialOverlays(stageRoot, stageInner, overlays) {
     stageInner.appendChild(overlayElement);
     currentElement = overlayElement;
     isWaiting = false;
+
+    // Wire overlay click actions (e.g., next / skip)
+    if (overlayDefinition && overlayDefinition.action) {
+      wireOverlayAction(overlayElement, overlayDefinition.action);
+    }
 
     // Play any audio tied to this overlay when it becomes visible
     playOverlayAudio(overlayDefinition);
