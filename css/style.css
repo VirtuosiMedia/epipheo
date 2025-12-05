@@ -447,6 +447,47 @@ body {
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
+/* CTA overlay */
+.cta-overlay {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  max-width: 50%;
+  margin: 10% auto 0px;
+  padding: 10px 40px;
+  pointer-events: all;
+  text-align: center;
+}
+
+@media (min-width: 1000px) and (orientation: landscape) and (pointer: fine) {
+  .cta-overlay {
+    font-size: 26px;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #6a1bff; /* Base purple */
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background: linear-gradient(90deg, #ff9b00 0%, #ff3fa5 100%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Loading and error states keep the experience explicit during data issues. */
 .loading {
   color: #e6e8ef;

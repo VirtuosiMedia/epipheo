@@ -909,18 +909,45 @@ function renderOverlays(stageInner, overlays) {
  * @returns {HTMLElement}
  */
 function createOverlayElement(overlayDefinition) {
+  const type = (overlayDefinition.type || "unknown").toLowerCase();
+
   const wrapper = document.createElement("div");
-  wrapper.className = `overlay overlay-${overlayDefinition.type || "unknown"}`;
+  wrapper.className = `overlay overlay-${type}`;
   applyOverlayBox(wrapper, overlayDefinition);
 
-  if (overlayDefinition.type === "text") {
+  // --- NEW: HTML overlay ---
+  if (type === "html") {
+    if (typeof overlayDefinition.html === "string") {
+      wrapper.innerHTML = overlayDefinition.html;
+    }
+
+    // Prevent clicks on links inside this overlay from bubbling
+    // up to the stage (which would advance the slide).
+    const clickHandler = (event) => {
+      const anchor = event.target.closest("a[href]");
+      if (anchor) {
+        // Let the browser follow the link, but don't advance slide.
+        event.stopPropagation();
+        // NOTE: no preventDefault(), so navigation still happens.
+      }
+    };
+
+    wrapper.addEventListener("click", clickHandler);
+    registerTeardownHandler(() => {
+      wrapper.removeEventListener("click", clickHandler);
+    });
+
+    return wrapper;
+  }
+
+  if (type === "text") {
     const text = document.createElement("div");
     text.innerHTML = overlayDefinition.html || "";
     wrapper.appendChild(text);
     return wrapper;
   }
 
-  if (overlayDefinition.type === "image") {
+  if (type === "image") {
     const image = document.createElement("img");
     image.className = "overlay-image";
     image.src = overlayDefinition.src || "";
@@ -929,7 +956,7 @@ function createOverlayElement(overlayDefinition) {
     return wrapper;
   }
 
-  if (overlayDefinition.type === "video") {
+  if (type === "video") {
     wrapper.style.pointerEvents = "auto";
     wrapper.style.cursor = "pointer";
 
@@ -987,6 +1014,7 @@ function createOverlayElement(overlayDefinition) {
     return wrapper;
   }
 
+  // Default (button/hotspot etc. wrappers are positioned here)
   return wrapper;
 }
 
@@ -1056,7 +1084,14 @@ function applyOverlayBox(element, overlayDefinition) {
  */
 function slideHasInteractiveOverlay(slide) {
   return Array.isArray(slide?.overlays)
-    ? slide.overlays.some((o) => o?.type === "button" || o?.type === "hotspot")
+    ? slide.overlays.some(
+        (o) =>
+          o &&
+          (o.type === "button" ||
+            o.type === "hotspot" ||
+            o.action === "next" ||
+            o.action === "skip")
+      )
     : false;
 }
 

@@ -137,6 +137,37 @@
               "delay": 10000
             }
           ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/cta.png",
+            "alt": "Travel frame 01"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div class='cta-overlay'><p>Want to learn more about Digital Experience Analytics?</p><p>Check out <a target=\"_blank\" href=\"https://splunk.com/o11y\">Splunk Observability Website<a> to learn more.<p></div>",
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 33,
+              "w": 100,
+              "h": 100,
+              "html": "<button class=\"cta-button\">Try another scenario</button>",
+              "delay": 0
+            }
+          ]
         }
       ]
     },
@@ -297,6 +328,37 @@
               "delay": 2000
             }
           ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/cta.png",
+            "alt": "Travel frame 01"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div class='cta-overlay'><p>Want to learn more about Digital Experience Analytics?</p><p>Check out <a target=\"_blank\" href=\"https://splunk.com/o11y\">Splunk Observability Website<a> to learn more.<p></div>",
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 33,
+              "w": 100,
+              "h": 100,
+              "html": "<button class=\"cta-button\">Try another scenario</button>",
+              "delay": 0
+            }
+          ]
         }
       ]
     },
@@ -433,7 +495,7 @@
               "sound": [
                 {
                   "src": "media/sound/mp3/MusicLoops/SplunkBTM_ComicPanels_Music_LOOP.mp3",
-                  "loops": true,
+                  "loops": false,
                   "stopOthers": true
                 }
               ],
@@ -447,6 +509,37 @@
               "w": 10,
               "h": 10,
               "delay": 3000
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/cta.png",
+            "alt": "Travel frame 01"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "overlays": [
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 0,
+              "w": 100,
+              "h": 100,
+              "html": "<div class='cta-overlay'><p>Want to learn more about Digital Experience Analytics?</p><p>Check out <a target=\"_blank\" href=\"https://splunk.com/o11y\">Splunk Observability Website<a> to learn more.<p></div>",
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 0,
+              "y": 33,
+              "w": 100,
+              "h": 100,
+              "html": "<button class=\"cta-button\">Try another scenario</button>",
+              "delay": 0
             }
           ]
         }
