@@ -446,6 +446,10 @@ body {
   color: #000;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
+.thought-text {
+  font-size: 20px;
+  font-weight: bold;
+}
 
 /* CTA overlay */
 .cta-overlay {

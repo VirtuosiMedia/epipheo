@@ -148,6 +148,17 @@
           "preloadNext": true,
           "overlays": [
             {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
+            {
               "type": "html",
               "persistent": true,
               "x": 0,
@@ -247,17 +258,6 @@
           "preloadNext": true,
           "overlays": [
             {
-              "type": "sound",
-              "sound": [
-                {
-                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
-                  "loops": true,
-                  "stopOthers": true
-                }
-              ],
-              "delay": 0
-            },
-            {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
               "x": 65,
@@ -279,12 +279,43 @@
           "overlays": [
             {
               "type": "image",
+              "src": "media/ui/thought.gif",
+              "x": 0,
+              "y": -15,
+              "w": 54,
+              "h": 71,
+              "persistent": true,
+              "delay": 0
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/thought.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 8,
+              "y": 10,
+              "w": 40,
+              "h": 20,
+              "html": "<p class=\"thought-text\">Looks like I can see related entities to check the backend and figure out what's going on.</p>",
+              "showAt": 500
+            },
+            {
+              "type": "image",
               "src": "media/ui/overlays/arrow.svg",
               "x": 55,
               "y": 3,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "delay": 3000
             }
           ]
         },
@@ -298,6 +329,37 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "image",
+              "src": "media/ui/thought.gif",
+              "x": 0,
+              "y": -15,
+              "w": 54,
+              "h": 71,
+              "persistent": true,
+              "delay": 0
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/thought.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 8,
+              "y": 10,
+              "w": 40,
+              "h": 20,
+              "html": "<p class=\"thought-text\">Looks like the drop offs are increasing along with user count.</p>",
+              "showAt": 500
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/continue.svg",
@@ -338,6 +400,17 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
             {
               "type": "html",
               "persistent": true,
@@ -459,6 +532,59 @@
           "sequential": false,
           "overlays": [
             {
+              "type": "image",
+              "src": "media/ui/thought.gif",
+              "x": 0,
+              "y": -15,
+              "w": 54,
+              "h": 71,
+              "persistent": true,
+              "delay": 0
+            },
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/InteractiveSounds/thought.mp3",
+                  "loops": false,
+                  "stopOthers": false
+                }
+              ],
+              "delay": 0
+            },
+            {
+              "type": "html",
+              "persistent": true,
+              "x": 8,
+              "y": 10,
+              "w": 40,
+              "h": 20,
+              "html": "<p class=\"thought-text\">Let's check out a session replay and see what's actually happening.</p>",
+              "showAt": 500
+            },
+
+            {
+              "type": "image",
+              "src": "media/ui/play.png",
+              "x": 61,
+              "y": 45,
+              "w": 10,
+              "h": 10,
+              "delay": 0
+            }
+          ]
+        },
+        {
+          "base": {
+            "type": "image",
+            "src": "media/ui/overlays/UI_airline-03.jpg",
+            "alt": "Travel frame 02"
+          },
+          "advance": "click",
+          "preloadNext": true,
+          "sequential": false,
+          "overlays": [
+            {
               "type": "video",
               "src": "media/travel/travel_ui_loop.mp4",
               "x": 38.7,
@@ -467,7 +593,7 @@
               "h": 71,
               "autoplay": true,
               "controls": false,
-              "loop": true,
+              "loop": false,
               "delay": 0
             },
             {
@@ -521,6 +647,17 @@
           "advance": "click",
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "sound",
+              "sound": [
+                {
+                  "src": "media/sound/mp3/MusicLoops/SplunkBTM_UI_Music_LOOP.mp3",
+                  "loops": true,
+                  "stopOthers": true
+                }
+              ],
+              "delay": 0
+            },
             {
               "type": "html",
               "persistent": true,
