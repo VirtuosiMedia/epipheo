@@ -165,7 +165,7 @@
               "y": 0,
               "w": 100,
               "h": 100,
-              "html": "<div class='cta-overlay'><p>Want to learn more about Digital Experience Analytics?</p><p>Check out <a target=\"_blank\" href=\"https://splunk.com/o11y\">Splunk Observability Website<a> to learn more.<p></div>",
+              "html": "<div class='cta-overlay'><p>Want to learn more about Digital Experience Analytics?</p><p>Check out the <a target=\"_blank\" href=\"https://splunk.com/o11y\">Splunk Observability Website<a> to learn more.<p></div>",
               "delay": 0
             },
             {
