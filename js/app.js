@@ -871,6 +871,10 @@ function renderOverlays(stageInner, overlays) {
     const overlayElement = createOverlayElement(overlayDefinition);
     stageInner.appendChild(overlayElement);
 
+    if (overlayDefinition && overlayDefinition.action) {
+      wireOverlayAction(overlayElement, overlayDefinition.action);
+    }
+
     if (Array.isArray(overlayDefinition.classList)) {
       overlayDefinition.classList.forEach((cls) =>
         overlayElement.classList.add(cls)

@@ -43,6 +43,7 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
             {
               "type": "sound",
@@ -56,13 +57,23 @@
               "delay": 0
             },
             {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 15,
+              "y": 35,
+              "w": 12,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
               "x": 10,
               "y": 20,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
@@ -73,8 +84,19 @@
             "alt": "Bank frame 02"
           },
           "advance": "click",
+          "sequential": false,
           "preloadNext": true,
           "overlays": [
+            {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 90,
+              "y": 17,
+              "w": 5,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
@@ -82,7 +104,7 @@
               "y": 3,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
@@ -225,6 +247,7 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
             {
               "type": "sound",
@@ -237,6 +260,17 @@
               ],
               "delay": 0
             },
+
+            {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 15,
+              "y": 35,
+              "w": 12,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
@@ -244,7 +278,7 @@
               "y": 20,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
@@ -256,7 +290,18 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
+            {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 68,
+              "y": 17,
+              "w": 10,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
@@ -264,7 +309,7 @@
               "y": 3,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
@@ -276,6 +321,7 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
             {
               "type": "image",
@@ -308,6 +354,17 @@
               "html": "<p class=\"thought-text\">Looks like I can see related entities to check the backend and figure out what's going on.</p>",
               "showAt": 500
             },
+
+            {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 62,
+              "y": 17,
+              "w": 6,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
@@ -315,7 +372,7 @@
               "y": 3,
               "w": 10,
               "h": 10,
-              "delay": 3000
+              "showAt": 3000
             }
           ]
         },
@@ -477,6 +534,7 @@
             "alt": "Travel frame 02"
           },
           "advance": "click",
+          "sequential": false,
           "preloadNext": true,
           "overlays": [
             {
@@ -491,13 +549,23 @@
               "delay": 0
             },
             {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 15,
+              "y": 35,
+              "w": 12,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
+            {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
               "x": 10,
               "y": 20,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
@@ -509,7 +577,18 @@
           },
           "advance": "click",
           "preloadNext": true,
+          "sequential": false,
           "overlays": [
+            {
+              "type": "hotspot",
+              "action": "skip",
+              "x": 91,
+              "y": 78,
+              "w": 5,
+              "h": 5,
+              "persistent": true,
+              "classList": ["hotspot"]
+            },
             {
               "type": "image",
               "src": "media/ui/overlays/arrow.svg",
@@ -517,7 +596,7 @@
               "y": 65,
               "w": 10,
               "h": 10,
-              "delay": 2000
+              "showAt": 2000
             }
           ]
         },
