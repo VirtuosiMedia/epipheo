@@ -451,6 +451,18 @@ body {
   font-weight: bold;
 }
 
+@media (max-width: 480px) {
+  .thought-text {
+    font-size: 0.5rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1080px) {
+  .thought-text {
+    font-size: 14px;
+  }
+}
+
 /* CTA overlay */
 .cta-overlay {
   display: block;
@@ -461,6 +473,20 @@ body {
   padding: 10px 40px;
   pointer-events: all;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  .cta-overlay {
+    font-size: 0.5rem;
+    max-width: 60%;
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1000px) {
+  .cta-overlay {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 1000px) and (orientation: landscape) and (pointer: fine) {
@@ -490,6 +516,13 @@ body {
 .cta-button:focus {
   background: linear-gradient(90deg, #ff9b00 0%, #ff3fa5 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1000px) {
+  .cta-button {
+    font-size: 16px;
+    margin-top: -5px;
+  }
 }
 
 /* Loading and error states keep the experience explicit during data issues. */
